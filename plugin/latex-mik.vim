@@ -42,16 +42,6 @@
 "       updated
 "
 
-":function! Standard_map()
-"   :map! ä \"a
-"   :map! ö \"o
-"   :map! ü \"u
-"   :map! Ä \"A
-"   :map! Ö \"O
-"   :map! Ü \"U
-"   :map! ß {\ss}
-"   :set isk+=58,46
-":endfunction
 
 :function! GetProjName()
   let s:projektname = input("Enter project name [default current file]: ")
@@ -85,7 +75,11 @@
    return
   endif
   let s:zlnr=line(".")
+if has("gui_running")
   let befehl="silent !start yap -s ".s:zlnr.expand("%:t")." ".s:projektname.".dvi"
+else
+  let befehl="!yap -s ".s:zlnr.expand("%:t")." ".s:projektname.".dvi &"
+endif
   execute(befehl)
 :endfunction
 
@@ -143,7 +137,7 @@ if has("gui_running")
 else
   let befehl="!dvips -t letter ".s:projektname
 endif
-  execute(bevel)
+  execute(befehl)
 :endfunction
 
 :function! Exexpdf()
@@ -155,12 +149,29 @@ endif
   execute(befehl)
 :endfunction
 
-:function! Exegsv()
+:function! Exegvps()
   if exists("s:projektname") == 0
     call GetProjName()
    return
   endif
-  let befehl="silent !start gsview32 ".s:projektname.".ps"
+if has("gui_running")
+  let befehl="!gsview32 ".s:projektname.".ps"
+else
+  let befehl="!gsview32 ".s:projektname.".ps &"
+endif
+  execute(befehl)
+:endfunction
+
+:function! Exegvpdf()
+  if exists("s:projektname") == 0
+    call GetProjName()
+   return
+  endif
+if has("gui_running")
+  let befehl="silent !start gsview32 ".s:projektname.".pdf"
+else
+  let befehl="!gsview32 ".s:projektname.".pdf &"
+endif
   execute(befehl)
 :endfunction
 
@@ -405,7 +416,8 @@ menu 8000.84     &LaTeX.&IndexProject                :call ExeMakeindex()<cr><Sp
 menu 8000.70     &LaTeX.&ViewFile<tab>,yap            :call ExeYap()<cr>
 menu 8000.62     &LaTeX.&PDFLaTeX<tab>,pdf                    :call ExePDFLaTeX()<cr>
 menu 8000.63     &LaTeX.&dvips<tab>,ps                       :call Exedvips()<cr><Space>
-menu 8000.71     &LaTeX.&gsview<tab>,gv                      :call Exegsv()<cr><Space>
+menu 8000.71     &LaTeX.&gsview\ ps<tab>,gvps                      :call Exegvps()<cr><Space>
+menu 8000.72     &LaTeX.&gsview\ pdf<tab>,gvpdf			:call Exegvpdf<cr><Space>
 menu 8000.85     &LaTeX.LaTeX\ to\ &HTML             :call Exetohtml()<cr><Space>
 menu 8000.66     &LaTeX.-sep4-                       <nul>
 menu 8000.90     &LaTeX.Projec&tname<tab>,pr      :call GetProjName()<cr>
@@ -414,10 +426,12 @@ menu 8000.95     &LaTeX.LoadBibLog<tab>,blg  			:call LoadBibLog()<cr>
 :endfunction
 
 :function! LatexUnMap()
-  unmap ,gv
+  unmap ,gvps
+  unmap ,gvpdf
   unmap ,lps
   unmap ,bib
   unmap ,pdf
+  unmap ,xpdf
   unmap ,ps
   unmap ,la
   unmap ,yap
@@ -432,8 +446,9 @@ menu 8000.95     &LaTeX.LoadBibLog<tab>,blg  			:call LoadBibLog()<cr>
 
 
 :function! LatexMap()
+  map ,gvps     :call Exegvps()<cr>
+  map ,gvpdf   :call Exegvpdf()<cr>
   map ,lps   :call Exelps()<cr>
-  map ,gv     :call Exegsv()<cr>
   map ,bib    :call ExeBibtex()<cr>
   map ,pdf    :call ExePDFLaTeX()<cr>
   map ,xpdf   :call Exexpdf()<cr> 
@@ -450,18 +465,3 @@ menu 8000.95     &LaTeX.LoadBibLog<tab>,blg  			:call LoadBibLog()<cr>
   map ,log  :call LoadLog()<cr>
   map ,blg  :call LoadBibLog()<cr>
 :endfunction
-
-
-"set timeoutlen=2500
-":au BufWinEnter *.tex,*.dtx,*.ltx,*.bib :call LatexMenu()
-":au BufWinLeave *.tex,*.dtx,*.ltx,*.bib :call LatexUnMenu()
-":au BufWinEnter *.tex,*.dtx,*.ltx,*.bib :call LatexMap()
-":au BufWinLeave *.tex,*.dtx,*.ltx,*.bib :call LatexUnMap()
-":au BufEnter *.tex,*.dtx,*.ltx :call Standard_map()
-":au BufLeave *.tex,*.dtx,*.ltx :call Remove_map()
-":au BufEnter *.bib :call Bibtex_map()
-":au BufLeave *.bib :call Remove_map()
-":au BufEnter *.tex,*.dtx,*.ltx :set isk+=58,46
-":au BufLeave *.tex,*.dtx,*.ltx :set isk-=58,46
-
-
