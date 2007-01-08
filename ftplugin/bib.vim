@@ -1,0 +1,2 @@
+call LatexMenu()
+call LatexMap()

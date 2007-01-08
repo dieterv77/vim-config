@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+# A simple script to generate dict files from syntax files. It needs perl no longer, use sed instead.
+
+# See angus-vim@revahertz.com post
+# Directories for syntax files in distribution
+#SYNTAX_DIR="/usr/local/share/vim/vim70aa/syntax/*";
+#DICT_DIR="/usr/local/share/vim/vim70aa/dict";
+
+# directories for my syntax files
+SYNTAX_DIR="/home/vimfiles/syntax/*";
+DICT_DIR="/home/vimfiles/dict";
+
+
+for file in $SYNTAX_DIR; do
+	newfile=`echo $file | cut -d/ -f5 | cut -d. -f1`".dict"
+	echo "Generating: $DICT_DIR/$newfile"
+	cat $file | grep keyword | grep -v nextgroup | awk '{$1 = ""; $2= ""; $3=""; print}' | sed 's/\s\+/\n/g' | grep -v contained | grep -v '^$' | sort | uniq > $DICT_DIR/$newfile;
+done 

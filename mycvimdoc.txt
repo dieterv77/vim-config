@@ -1,0 +1,6 @@
+- Move c.vim from ftplugin to after/ftplugin
+- Move c.vim from plugin to ftplugin
+- add stuff from c.bak to after/ftplugin/c.vim
+- set mapleader = "," in after/ftplugin/c.vim
+- change the way things get printed in ftplugin/c.vim 
+  (see c.bak)

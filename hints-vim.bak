@@ -1,0 +1,43 @@
+#!/bin/sh
+# This script will generate the hint file to be used with vim.
+# The hint file is a VIM script which when sourced with the current C file you are editing,
+# will print the function prototype on the VIM information line when you type in that function.
+# Got the idea from Dr. Chip's [ http://users.erols.com/astronaut/vim/] flist program.
+# This shell script duplicates what flist -h does.
+# Usage:
+# 1. Generate tags file using ctags
+# 2. Create the hints file using vimhint (this file) > hints
+# 3. Source hints into your editing ( :so hints ) file
+# 			or
+# put the following code into your <.vimrc> for automatic
+# sourcing of hints:
+#
+# if filereadable(expand("hints"))
+#   au BufNewFile,BufReadPost *.c,*.C,*.cpp,*.CPP,*.cxx  so hints
+# endif
+# 
+#  TODO: get tags file from command line
+#linereport error if no tags file found
+#  Updated on Oct 22, 2005
+# Dieter modified this file so that it just uses the preview window everytime a function
+# name is typed
+#echo "set ch=2"
+#echo "map <silent> ,show :echo \"<C-R>z\"<CR>"
+#echo "map <silent> ,show2 \"zyiw:fun<C-R>z<CR>" 
+for function in   `grep -w f tags | cut -f1`           # list all the functions from the tag file
+do
+#        funheader=$(ref -c $function | tr -d '[\n\r\t]' )  # ref lists the function header even if it is multiple line
+                                                           # tr translates multiline to single line.
+	echo "inorea <silent> $function $function<ESC>ma2h<C-W>}\`aa"
+#   echo "inorea <silent> $function $function<ESC>ma:echo \"$funheader\"<CR>:silent let @z = \"$funheader\"<CR>\`aa"
+#   echo "ab fun$function :echo \"$funheader\"<CR>"	
+done
+for function in   `grep -w d tags | cut -f1`           # list all the functions from the tag file
+do
+	echo "inorea <silent> $function $function<ESC>ma2h<C-W>}\`aa"
+#        funheader=$(ref -c $function | tr -d '[\n\r\t]' )  # ref lists the function header even if it is multiple line
+                                                           # tr translates multiline to single line.
+#   echo "inorea <silent> $function $function<ESC>ma:echo \"$funheader\"<CR>:silent let @z = \"$funheader\"<CR>\`aa" 
+#   echo "ab fun$function :echo \"$funheader\"<CR>"	
+done
+

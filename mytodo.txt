@@ -1,0 +1,13 @@
+- Set up commands to redo folding from the top of the document
+
+- Find ways to make bibtex and ref commands easier.  Has some bugs in \cite stuff
+  and could make \ref stuff recognize prop, thm, eqn, etc...
+
+- learn how to use makefiles for latex
+
+- Add commands to quickly do tags (use tags keyword for directory
+	priorities)
+
+- Checkout taglist plugin further
+
+- Checkout cfname plugin
