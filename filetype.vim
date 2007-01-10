@@ -8,4 +8,10 @@ au BufRead,BufNewFile *.ieq setf porta
 au BufRead,BufNewFile *.poi setf porta
 augroup END
 
+"Set Linux.config, Windows.config, Solaris.config to be make filetype
+augroup filetypedetect
+au BufNewFile,BufRead Linux.config set filetype=make
+au BufNewFile,BufRead Windows.config set filetype=make
+au BufNewFile,BufRead Windows.config set filetype=make
+augroup END
 "au BufRead,BufNewFile *  setfiletype txt
