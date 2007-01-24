@@ -46,14 +46,14 @@ nnoremap ? :call SearchBackCompleteStart()<CR>?
 " Set mappings for search complete
 "-------------------------------------------------- 
 function! SearchCompleteStart()
-	cnoremap <Tab> <C-C>:call SearchComplete()<CR>/<C-R>s
-	cnoremap <silent> <CR> <CR>:call SearchCompleteStop()<CR>
+	cnoremap ,<Tab> <C-C>:call SearchComplete()<CR>/<C-R>s
+"        noremap <CR> <CR>:call SearchCompleteStop()<CR>
         cnoremap <silent> <Esc><Esc> <C-C>:call SearchCompleteStop()<CR>
 endfunction
 
 function! SearchBackCompleteStart()
-	cnoremap <Tab> <C-C>:call SearchBackComplete()<CR>?<C-R>s
-	cnoremap <silent> <CR> <CR>:call SearchCompleteStop()<CR>
+	cnoremap ,<Tab> <C-C>:call SearchBackComplete()<CR>?<C-R>s
+"        cnoremap <silent> <CR> <CR>:call SearchCompleteStop()<CR>
         cnoremap <silent> <Esc><Esc> <C-C>:call SearchCompleteStop()<CR>
 endfunction
 "--------------------------------------------------
@@ -138,8 +138,8 @@ endfunction
 " Remove search complete mappings
 "-------------------------------------------------- 
 function! SearchCompleteStop()
-	cunmap <Tab>
-	cunmap <CR>
+	cunmap ,<Tab>
+"        cunmap <CR>
         cunmap <Esc><Esc>
 endfunction
 
