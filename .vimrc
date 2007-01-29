@@ -22,6 +22,7 @@ set guifont=Lucida_Console:h11:cANSI
 
 "Setting for enhanced commentify
 let g:EnhCommentifyUserBindings='yes'
+let g:EnhCommentifyMultiPartBlocks='yes'
 
 "Some latex stuff
 let g:tex_flavor = 'latex' "Do this to ensure filetype is latex, not plaintex
