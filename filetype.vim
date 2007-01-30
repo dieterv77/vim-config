@@ -13,5 +13,6 @@ augroup filetypedetect
 au BufNewFile,BufRead Linux.config set filetype=make
 au BufNewFile,BufRead Windows.config set filetype=make
 au BufNewFile,BufRead Windows.config set filetype=make
+au BufNewFile,BufRead Common.config set filetype=make
 augroup END
 "au BufRead,BufNewFile *  setfiletype txt
