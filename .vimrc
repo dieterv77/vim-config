@@ -2,7 +2,7 @@ syntax on
 if exists("did_indent_on")
   finish
 endif
-set softtabstop=3
+set tabstop=3
 set shiftwidth=3
 filetype plugin indent on
 set backspace=eol,start,indent
@@ -90,3 +90,6 @@ au BufNewFile,BufRead *.h   setlocal foldnestmax=2
 
 "Fold xml files
 let g:xml_syntax_folding = 1
+
+"Set mapleader to ,
+let mapleader=','
