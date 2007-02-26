@@ -34,7 +34,7 @@ set spelllang=en_us
 set spellfile=mywords.latin1.add
 
 if has("gui_running")
-	colo xemacs2
+	colo morning
 else
 	colo default 
 endif
