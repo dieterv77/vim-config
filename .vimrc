@@ -2,7 +2,7 @@ syntax on
 if exists("did_indent_on")
   finish
 endif
-set tabstop=3
+set softtabstop=3
 set shiftwidth=3
 filetype plugin indent on
 set backspace=eol,start,indent
