@@ -155,7 +155,7 @@ endif
    return
   endif
 if has("gui_running")
-  let befehl="!gsview32 ".s:projektname.".ps"
+  let befehl="silent !start gsview32 ".s:projektname.".ps"
 else
   let befehl="!gsview32 ".s:projektname.".ps &"
 endif
