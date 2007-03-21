@@ -61,6 +61,10 @@ endif
 nnoremap <C-j> :tabp<CR>
 nnoremap <C-k> :tabn<CR>
 
+"Mapping to open and close folds
+nn - zc
+nn + zo
+
 "Don't match parenthesis with highlighting
 let loaded_matchparen = 1
 
