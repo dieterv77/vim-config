@@ -96,3 +96,7 @@ let mapleader=','
 
 "Set taglist stuff
 nnoremap <silent> <F8> :TlistToggle<CR>
+let Tlist_Auto_Highlight_Tag=0
+let Tlist_Highlight_Tag_On_BufEnter=0
+let Tlist_Show_One_File=1
+let Tlist_Sort_Type="name"
