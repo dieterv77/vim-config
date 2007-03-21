@@ -93,3 +93,6 @@ let g:xml_syntax_folding = 1
 
 "Set mapleader to ,
 let mapleader=','
+
+"Set taglist stuff
+nnoremap <silent> <F8> :TlistToggle<CR>
