@@ -108,3 +108,7 @@ let Tlist_Enable_Fold_Column=0
 
 "Set pastetoggle to F10
 set pastetoggle=<F10>
+
+"Set default ctags key
+map <F7> :!ctags -R .<CR>
+
