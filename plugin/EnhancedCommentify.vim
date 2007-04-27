@@ -696,7 +696,7 @@ function s:GetFileTypeSettings(ft)
         \ 'strace\|xpm\|yacc\)$'
     let b:ECcommentOpen = '/*'
     let b:ECcommentClose = '*/'
-    elseif fileType =~ '^\(html\|xml\|dtd\|sgmllnx\)$'
+    elseif fileType =~ '^\(html\|xml\|dtd\|docbk\|sgmllnx\)$'
     let b:ECcommentOpen = '<!--'
     let b:ECcommentClose = '-->'
     elseif fileType =~ '^\(sgml\|smil\)$'
