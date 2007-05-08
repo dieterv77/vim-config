@@ -19,6 +19,7 @@ set showcmd
 
 "Set font for gui
 set guifont=Lucida_Console:h11:cANSI
+"set guifont="Monospace 11"
 
 "Setting for enhanced commentify
 let g:EnhCommentifyUserBindings='yes'
