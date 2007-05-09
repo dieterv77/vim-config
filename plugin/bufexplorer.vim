@@ -92,7 +92,12 @@ augroup bufexplorer
 augroup End
 
 " Create commands {{{1
-command BufExplorer :call <SID>StartBufExplorer("drop")
+if has("gui")
+  command BufExplorer :call <SID>StartBufExplorer("drop")
+else
+  command BufExplorer :call <SID>StartBufExplorer("edit")
+end
+"command BufExplorer :call <SID>StartBufExplorer("drop")
 command SBufExplorer  :call <SID>StartBufExplorer("sp")
 command VSBufExplorer :call <SID>StartBufExplorer("vsp")
 
