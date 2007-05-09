@@ -113,3 +113,5 @@ set pastetoggle=<F10>
 "Set default ctags key
 map <F7> :!ctags -R .<CR>
 
+"Set map to start bufexplorer (besides the <Leader>be)
+map <F6> :BufExplorer<CR>
