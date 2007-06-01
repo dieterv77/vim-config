@@ -8,9 +8,9 @@ au BufRead,BufNewFile *.ieq setf porta
 au BufRead,BufNewFile *.poi setf porta
 augroup END
 
-augroup filetypedetect
-au BufRead,BufNewFile *.m setf octave
-augroup END
+"augroup filetypedetect
+"au BufRead,BufNewFile *.m setf octave
+"augroup END
 
 "Set Linux.config, Windows.config, Solaris.config to be make filetype
 augroup filetypedetect
