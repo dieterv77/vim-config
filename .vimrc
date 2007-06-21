@@ -13,7 +13,7 @@ set expandtab
 set linebreak
 set incsearch
 set nohlsearch
-set autowrite
+set autowriteall
 set showcmd
 
 
