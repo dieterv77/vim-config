@@ -75,7 +75,7 @@
    return
   endif
   let s:zlnr=line(".")
-if has("gui_running")
+if has("gui_running") && has("win32")
   let befehl="silent !start yap -s ".s:zlnr.expand("%:t")." ".s:projektname.".dvi"
 else
   let befehl="!yap -s ".s:zlnr.expand("%:t")." ".s:projektname.".dvi &"
@@ -88,7 +88,7 @@ endif
     call GetProjName()
    return
   endif
-if has("gui_running")
+if has("gui_running") && has("win32")
   let befehl="silent !latex -src ".s:projektname
 else
   let befehl="!latex -src ".s:projektname
@@ -112,7 +112,7 @@ endif
     call GetProjName()
    return
   endif
-if has("gui_running")
+if has("gui_running") && has("win32")
   let befehl="silent !dvips -t letter ".s:projektname
 else
   let befehl="!dvips -t letter ".s:projektname
@@ -126,13 +126,13 @@ endif
     call GetProjName()
    return
   endif
-if has("gui_running")
+if has("gui_running") && has("win32")
   let befehl="silent  !latex -src ".s:projektname
 else
   let befehl="!latex -src ".s:projektname
 endif
   execute(befehl)
-if has("gui_running")
+if has("gui_running") && has("win32")
   let befehl="silent !dvips -t letter ".s:projektname
 else
   let befehl="!dvips -t letter ".s:projektname
@@ -149,12 +149,21 @@ endif
   execute(befehl)
 :endfunction
 
+:function! Exeevince()
+  if exists("s:projektname") == 0
+    call GetProjName()
+   return
+  endif
+  let befehl="!evince ".s:projektname.".pdf &" 
+  execute(befehl)
+:endfunction
+
 :function! Exegvps()
   if exists("s:projektname") == 0
     call GetProjName()
    return
   endif
-if has("gui_running")
+if has("gui_running") && has("win32")
   let befehl="silent !start gsview32 ".s:projektname.".ps"
 else
   let befehl="!gsview32 ".s:projektname.".ps &"
@@ -167,7 +176,7 @@ endif
     call GetProjName()
    return
   endif
-if has("gui_running")
+if has("gui_running") && has("win32")
   let befehl="silent !start gsview32 ".s:projektname.".pdf"
 else
   let befehl="!gsview32 ".s:projektname.".pdf &"
@@ -180,7 +189,7 @@ endif
     call GetProjName()
    return
   endif
-if has("gui_running")
+if has("gui_running") && has("win32")
   let befehl="silent !pdflatex ".s:projektname
 else
   let befehl="!pdflatex ".s:projektname
@@ -193,7 +202,7 @@ endif
    call GetProjName()
    return
   endif
-if has("gui_running")
+if has("gui_running") && has("win32")
   let befehl="silent !bibtex ".s:projektname
 else
   let befehl="!bibtex ".s:projektname
@@ -442,6 +451,7 @@ menu 8000.95     &LaTeX.LoadBibLog<tab>,blg  			:call LoadBibLog()<cr>
   vunmap ,rcm
   unmap ,cm
   unmap ,cl
+  unmap ,ev
 :endfunction
 
 
@@ -452,6 +462,7 @@ menu 8000.95     &LaTeX.LoadBibLog<tab>,blg  			:call LoadBibLog()<cr>
   map ,bib    :call ExeBibtex()<cr>
   map ,pdf    :call ExePDFLaTeX()<cr>
   map ,xpdf   :call Exexpdf()<cr> 
+  map ,ev   :call Exeevince()<cr> 
   map ,ps     :call Exedvips()<cr>
   map ,la     :call ExeLatex()<cr>
   map ,yap     :call ExeYap()<cr>
