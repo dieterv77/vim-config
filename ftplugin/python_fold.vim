@@ -12,6 +12,9 @@ setlocal foldmethod=expr
 setlocal foldexpr=GetPythonFold(v:lnum)
 setlocal foldtext=PythonFoldText()
 
+"Could also just try
+"setlocal foldmethod=indent
+
 
 function! PythonFoldText()
   let line = getline(v:foldstart)
