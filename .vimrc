@@ -18,8 +18,8 @@ set showcmd
 
 
 "Set font for gui
-set guifont=Lucida_Console:h11:cANSI
-"set guifont="Monospace 11"
+"set guifont=Lucida_Console:h11:cANSI
+set guifont="Monospace 11"
 
 "Setting for enhanced commentify
 let g:EnhCommentifyUserBindings='yes'
@@ -115,3 +115,9 @@ map <F7> :!ctags -R .<CR>
 
 "Set map to start bufexplorer (besides the <Leader>be)
 map <F6> :BufExplorer<CR>
+
+if has("win32")
+   let g:myvimpath = 'vimfiles'
+else
+   let g:myvimpath = '.vim'
+endif
