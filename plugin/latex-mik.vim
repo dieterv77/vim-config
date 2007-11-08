@@ -395,8 +395,12 @@ endif
   unmenu &LaTeX
 :endfunction
 
+function ReadTexTemplate()
+   execute('read $HOME/'.g:myvimpath.'/templates/tex-article.tex')
+endfunction
+
 :function! LatexMenu()
-menu 8000.5.80  &LaTeX.Blank\ Template             :read $HOME/vimfiles/templates/tex-article.tex<CR>
+menu 8000.5.80  &LaTeX.Blank\ Template             :call ReadTexTemplate()<CR>
 menu 8000.5.100 &LaTeX.-sep1-                       <nul>
 menu 8000.10.010 &LaTeX.BibTeXE&ntry.&Article        i@article{,<cr>author = {},<cr>title = {},<cr>year = {},<cr>journal = {},<cr>OPTpages = {},<cr>OPTvolume = {},<cr>OPTmonth = {},<cr>OPTnumber = {}<cr>}<cr>
 menu 8000.10.020 &LaTeX.BibTeXE&ntry.B&ook           i@book{,<cr>ALTauthor = {},<cr>ALTeditor = {},<cr>title = {},<cr>year = {},<cr>publisher = {},<cr>OPTaddress = {},<cr>OPTedition = {}<cr>}<cr>

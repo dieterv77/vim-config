@@ -1,7 +1,7 @@
 "include auctex rippoff
-so $HOME/.vim/samauctex.vim
+execute 'so $HOME/'.g:myvimpath.'/samauctex.vim'
 "Include folding file stolen from latex-suite
-so $HOME/.vim/fold/tex-folding.vim
+execute 'so $HOME/'.g:myvimpath.'/fold/tex-folding.vim'
 "Start from first line, otherwise folding not quite right
 "Create actual folds
 call MakeTexFolds(0)
@@ -10,9 +10,15 @@ map ,rf  :call MakeTexFolds(1)<cr>
 "Set typing textwidth
 set textwidth=72
 "Add tex words to dictionary
-set dictionary+=$HOME/.vim/wordlists/tex-dict.list
+if has("win32")
+   set dictionary+=$HOME/vimfiles/wordlists/tex-dict.list
+else
+   set dictionary+=$HOME/.vim/wordlists/tex-dict.list
+endif
 set complete+=k
 call LatexMenu()
 call LatexMap()
+
+map ,rt :call ReadTexTemplate()<CR>
 
 set spell
