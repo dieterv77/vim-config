@@ -121,3 +121,8 @@ if has("win32")
 else
    let g:myvimpath = '.vim'
 endif
+
+autocmd BufRead,BufNewFile *.txt,README,TODO,CHANGELOG,NOTES
+        \ setlocal autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2
+        \ textwidth=70 wrap formatoptions=tcqn
+        \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
