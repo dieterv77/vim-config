@@ -1,5 +1,5 @@
 set filetype=xml syntax=docbook
-set spell
+setlocal spell
 execute 'so $HOME/'.g:myvimpath.'/closetag.vim'
 "Map the tag completion to <F9>
 imap <F9> <C-_>
