@@ -21,4 +21,4 @@ call LatexMap()
 
 map ,rt :call ReadTexTemplate()<CR>
 
-set spell
+setlocal spell
