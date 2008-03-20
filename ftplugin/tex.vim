@@ -19,6 +19,13 @@ set complete+=k
 call LatexMenu()
 call LatexMap()
 
+function! CallTexMatchPy()
+   execute 'pyf $HOME/'.g:myvimpath.'/ftplugin/texmatch.py'
+endfunction
+
+imap <F9> <ESC>:call CallTexMatchPy()<CR>i
+
+
 map ,rt :call ReadTexTemplate()<CR>
 
 setlocal spell
