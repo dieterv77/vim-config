@@ -24,7 +24,7 @@ function! CallTexMatchPy()
 endfunction
 
 imap <F9> <ESC>:call CallTexMatchPy()<CR>i
-
+nmap <F9> :call CallTexMatchPy()<CR>
 
 map ,rt :call ReadTexTemplate()<CR>
 
