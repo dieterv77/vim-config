@@ -7,6 +7,9 @@ augroup filetypedetect
 au BufRead,BufNewFile *.ieq setf porta
 au BufRead,BufNewFile *.poi setf porta
 augroup END
+augroup filetypedetect
+au BufRead,BufNewFile *.gms setf gms
+augroup END
 
 "augroup filetypedetect
 "au BufRead,BufNewFile *.m setf octave
