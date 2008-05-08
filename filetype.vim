@@ -11,6 +11,10 @@ augroup filetypedetect
 au BufRead,BufNewFile *.gms setf gms
 augroup END
 
+augroup filetypedetect
+au BufRead,BufNewFile *.opf setf mosek
+augroup END
+
 "augroup filetypedetect
 "au BufRead,BufNewFile *.m setf octave
 "augroup END
