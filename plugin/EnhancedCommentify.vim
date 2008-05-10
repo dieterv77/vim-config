@@ -828,6 +828,9 @@ function s:GetFileTypeSettings(ft)
     elseif fileType == 'nroff' || fileType == 'groff'
     let b:ECcommentOpen = ".\\\\\""
     let b:ECcommentClose = ''
+    elseif fileType == 'mosek'
+    let b:ECcommentOpen = '#'
+    let b:ECcommentClose = ''
     elseif fileType == 'opl'
     let b:ECcommentOpen = 'REM '
     let b:ECcommentClose = ''
