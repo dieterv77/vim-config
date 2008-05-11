@@ -5,8 +5,8 @@ endif
 
 syn case match
 
-syntax match mosekComment /#.*/
-syntax match mosekString /'.\{-}'/
+syntax match mosekComment /#.*/ contained extend
+syntax match mosekString /'.\{-}'/ contained 
 
 syn match   mosekTagName
     \ +\(\[/\=\)\@<=.\{-}[ \]]\@=+
