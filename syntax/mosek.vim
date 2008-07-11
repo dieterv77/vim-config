@@ -5,6 +5,8 @@ endif
 
 syn case match
 
+syntax keyword xKeywords cone variables constraints rquad
+
 syntax match mosekComment /#.*/ contained extend
 syntax match mosekString /'.\{-}'/ contained 
 
