@@ -1532,6 +1532,46 @@ function s:SetKeybindings(where)
 	"
 	" *** Put your personal bindings here! ***
 	"
+        let s:c = '<F2>'
+        let s:u = '<F3>'
+        
+        if traditionalMode
+           let s:Method = 'Traditional'
+        elseif firstLineMode
+           let s:Method = 'FirstLine'
+        else
+           let s:Method = 'Comment'
+
+           if bindInNormal 
+              execute 'nmap '. where .' <silent> <unique> '. s:u
+                       \ .' <Plug>DeComment'
+           endif
+
+           if bindInInsert
+              execute 'imap '. where .' <silent> <unique> '. s:u
+                       \ .' <Esc><Plug>DeCommenti'
+           endif
+
+           if bindInVisual
+              execute 'vmap '. where .' <silent> <unique> '. s:u
+                       \ .' <Plug>VisualDeComment'
+           endif
+        endif
+
+        if bindInNormal
+           execute 'nmap '. where .' <silent> <unique> '. s:c
+                    \ .' <Plug>'. s:Method
+        endif
+
+        if bindInInsert
+           execute 'imap '. where .' <silent> <unique> '. s:c
+                    \ .' <Esc><Plug>'. s:Method
+        endif
+
+        if bindInVisual
+           execute 'vmap '. where .' <silent> <unique> '. s:c
+                    \ .' <Plug>Visual'. s:Method
+        endif
     else
 	if useAltKeys
 	    let s:c = '<M-c>'
