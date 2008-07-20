@@ -1,7 +1,9 @@
 "include auctex rippoff
-execute 'so $HOME/'.g:myvimpath.'/samauctex.vim'
+execute 'so $HOME/'.g:myvimpath.'/custom/samauctex.vim'
 "Include folding file stolen from latex-suite
-execute 'so $HOME/'.g:myvimpath.'/fold/tex-folding.vim'
+execute 'so $HOME/'.g:myvimpath.'/custom/tex-folding.vim'
+"include latex menus and shortcuts 
+execute 'so $HOME/'.g:myvimpath.'/custom/latex-mik.vim'
 "Start from first line, otherwise folding not quite right
 "Create actual folds
 call MakeTexFolds(0)
