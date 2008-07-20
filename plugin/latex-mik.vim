@@ -42,6 +42,10 @@
 "       updated
 "
 
+if exists("loaded_latexmik") || &cp
+  finish
+endif
+let loaded_latexmik = 1
 
 :function! GetProjName()
   let s:projektname = input("Enter project name [default current file]: ")
