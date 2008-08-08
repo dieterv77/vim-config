@@ -126,3 +126,10 @@ autocmd BufRead,BufNewFile *.txt,README,TODO,CHANGELOG,NOTES
         \ setlocal autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2
         \ textwidth=70 wrap formatoptions=tcqn
         \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+ \| exe "normal! g'\"" | endif
+endif
