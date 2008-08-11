@@ -16,7 +16,7 @@ set nohlsearch
 set autowriteall
 set showcmd
 
-set cino=t0,(0
+set cino=t0,(0,W1s
 
 "Set font for gui
 "set guifont=Lucida_Console:h11:cANSI
