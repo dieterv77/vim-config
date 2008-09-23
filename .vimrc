@@ -119,8 +119,10 @@ map <F6> :BufExplorer<CR>
 
 if has("win32")
    let g:myvimpath = 'vimfiles'
+   set makeprg=nmake\ /f\ Makefile.Windows
 else
    let g:myvimpath = '.vim'
+   set makeprg=make\ -f\ Makefile.Linux
 endif
 
 autocmd BufRead,BufNewFile *.txt,README,TODO,CHANGELOG,NOTES
