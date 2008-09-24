@@ -1,5 +1,8 @@
 if !exists('g:xml_syntax_folding') && input("Fold xml syntax (y/n)?\n") == "y"
    let g:xml_syntax_folding = 1
+endif
+
+if exists('g:xml_syntax_folding')
    set foldmethod=syntax
    set foldnestmax=5
    set foldcolumn=2
