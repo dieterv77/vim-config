@@ -95,7 +95,9 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 au BufNewFile,BufRead *.h   setlocal foldnestmax=2
 
 "Fold xml files
-let g:xml_syntax_folding = 1
+"Turn this on if you don't want the ftplugin to ask you
+"let g:xml_syntax_folding = 1
+ 
 
 "Set mapleader to ,
 let mapleader=','
