@@ -15,6 +15,11 @@ augroup filetypedetect
 au BufRead,BufNewFile *.opf setf mosek
 augroup END
 
+
+augroup filetypedetect
+au BufNewFile,BufRead *.i set filetype=swig 
+augroup END
+
 "augroup filetypedetect
 "au BufRead,BufNewFile *.m setf octave
 "augroup END
