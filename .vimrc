@@ -1,3 +1,7 @@
+"Set mapleader to ,
+let mapleader=","
+let maplocalleader=","
+
 syntax on
 if exists("did_indent_on")
   finish
@@ -97,10 +101,9 @@ au BufNewFile,BufRead *.h   setlocal foldnestmax=2
 "Fold xml files
 "Turn this on if you don't want the ftplugin to ask you
 "let g:xml_syntax_folding = 1
- 
-
-"Set mapleader to ,
-let mapleader=','
+"Making this empty ensures that we don't use the tag completion
+"mapping from xml-plugin
+let xml_tag_completion_map = "" 
 
 "Set taglist stuff
 nnoremap <silent> <F8> :TlistToggle<CR>
