@@ -1,3 +1,8 @@
+if exists("loaded_dieter_xml") || &cp
+  finish
+endif
+let loaded_dieter_xml = 1
+
 if !exists('g:xml_syntax_folding') && input("Fold xml syntax (y/n)?\n") == "y"
    let g:xml_syntax_folding = 1
 endif
