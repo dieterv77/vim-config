@@ -9,13 +9,13 @@ endif
 
 if exists('g:xml_syntax_folding')
    set foldmethod=syntax
-   set foldnestmax=5
+   set foldnestmax=7
    set foldcolumn=2
 endif
 
 function! CallSetXMLFolding()
    set foldmethod=syntax
-   set foldnestmax=5
+   set foldnestmax=7
    set foldcolumn=2
    let g:xml_syntax_folding = 1
    syntax on
