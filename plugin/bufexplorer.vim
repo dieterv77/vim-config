@@ -305,8 +305,8 @@ function s:MapKeys()
   nnoremap <buffer> <silent> <cr>          :call <SID>SelectBuffer()<cr>
   nnoremap <buffer> <silent> t             :call <SID>SelectBuffer("tab")<cr>
   nnoremap <buffer> <silent> <s-cr>        :call <SID>SelectBuffer("tab")<cr>
-  nnoremap <buffer> <silent> D             :call <SID>RemoveBuffer("wipe")<cr>
-  nnoremap <buffer> <silent> d             :call <SID>RemoveBuffer("delete")<cr>
+  nnoremap <buffer> <silent> d             :call <SID>RemoveBuffer("wipe")<cr>
+  nnoremap <buffer> <silent> D             :call <SID>RemoveBuffer("delete")<cr>
   nnoremap <buffer> <silent> m             :call <SID>MRUListShow()<cr>
   nnoremap <buffer> <silent> p             :call <SID>ToggleSplitOutPathName()<cr>
   nnoremap <buffer> <silent> q             :call <SID>Close()<cr>
