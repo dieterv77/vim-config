@@ -141,3 +141,12 @@ if has("autocmd")
  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
  \| exe "normal! g'\"" | endif
 endif
+
+let g:EclimLargeFileSize = 10
+
+" Override surround mappings
+let g:surround_no_mappings=1
+vmap <Leader>s <Plug>Vsurround
+vmap <Leader>S <Plug>VSurround
+nmap <Leader>sd   <Plug>Dsurround
+nmap <Leader>sc   <Plug>Csurround
