@@ -11,6 +11,7 @@ if exists('g:xml_syntax_folding')
    set foldmethod=syntax
    set foldnestmax=7
    set foldcolumn=2
+   syntax on
 endif
 
 function! CallSetXMLFolding()
