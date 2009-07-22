@@ -18,7 +18,7 @@ function! CallSetXMLFolding()
    set foldmethod=syntax
    set foldnestmax=7
    set foldcolumn=2
-   let g:xml_syntax_folding = 1
+   let g:xml_syntax_folding=1
    syntax on
 endfunction
 
