@@ -150,3 +150,8 @@ vmap <Leader>s <Plug>Vsurround
 vmap <Leader>S <Plug>VSurround
 nmap <Leader>sd   <Plug>Dsurround
 nmap <Leader>sc   <Plug>Csurround
+
+" Mapping for alternate functionality
+nmap <Leader>an :A<CR>
+nmap <Leader>as :AS<CR>
+nmap <Leader>av :AV<CR>
