@@ -400,7 +400,7 @@ endif
 :endfunction
 
 function ReadTexTemplate()
-   execute('read $HOME/'.g:myvimpath.'/templates/tex-article.tex')
+   execute('0read $HOME/'.g:myvimpath.'/templates/tex-article.tex')
 endfunction
 
 :function! LatexMenu()

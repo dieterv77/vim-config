@@ -1,7 +1,7 @@
 setlocal foldcolumn=1
 setlocal foldnestmax=3
 setlocal foldmethod=indent
-map ,rt  :read $HOME/.vim/templates/python-template.py<cr>
+map ,rt  :0read $HOME/.vim/templates/python-template.py<cr>
 map ,pf  :!pyflakes %<CR>
 map <f9> :w<CR>:!python %<CR>
 

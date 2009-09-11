@@ -4,4 +4,4 @@ set complete-=i
 if !has("win32")
    set makeprg=make\ -f\ Makefile.Linux\ $*
 endif
-execute 'map ,rt  :read $HOME/'.g:myvimpath.'/templates/cpp-template.cpp<cr>'
+execute 'map ,rt  :0read $HOME/'.g:myvimpath.'/templates/cpp-template.cpp<cr>'
