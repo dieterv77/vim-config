@@ -140,6 +140,7 @@ autocmd BufRead,BufNewFile *.txt,README,TODO,CHANGELOG,NOTES
 if has("autocmd")
  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
  \| exe "normal! g'\"" | endif
+ au BufReadPost svn-commit.* exe "normal! gg"
 endif
 
 let g:EclimLargeFileSize = 10
