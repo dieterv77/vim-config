@@ -29,6 +29,8 @@ set guifont="Monospace 11"
 "Setting for enhanced commentify
 let g:EnhCommentifyUserBindings='yes'
 let g:EnhCommentifyMultiPartBlocks='yes'
+let g:EnhCommentifyRespectIndent = 'yes'
+let g:EnhCommentifyPretty = 'yes'
 
 "Some latex stuff
 let g:tex_flavor = 'latex' "Do this to ensure filetype is latex, not plaintex
