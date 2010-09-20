@@ -2,6 +2,8 @@
 let mapleader=","
 let maplocalleader=","
 
+call pathogen#runtime_append_all_bundles() 
+
 syntax on
 if exists("did_indent_on")
   finish
