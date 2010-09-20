@@ -20,6 +20,8 @@ set nohlsearch
 set autowriteall
 set showcmd
 
+set hidden
+
 set cino=t0,(0,W1s
 
 "Set font for gui
