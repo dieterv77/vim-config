@@ -22,6 +22,7 @@ set incsearch
 set nohlsearch
 set autowriteall
 set showcmd
+set modeline
 
 set hidden
 
