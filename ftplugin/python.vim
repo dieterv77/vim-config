@@ -1,3 +1,5 @@
+setlocal softtabstop=4
+setlocal shiftwidth=4
 setlocal foldcolumn=1
 setlocal foldnestmax=3
 setlocal foldmethod=indent
