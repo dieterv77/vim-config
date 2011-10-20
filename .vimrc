@@ -52,7 +52,7 @@ set spellfile=mywords.latin1.add
 if has("gui_running")
 	colo morning
 else
-	colo default 
+	colo dieter 
 endif
 
 "Define statusline stuff
