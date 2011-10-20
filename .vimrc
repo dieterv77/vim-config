@@ -9,6 +9,8 @@ syntax on
 if exists("did_indent_on")
   finish
 endif
+
+nmap <Leader>s :set softtabstop=3 shiftwidth=3<CR>
 set softtabstop=3
 set shiftwidth=3
 filetype plugin indent on
