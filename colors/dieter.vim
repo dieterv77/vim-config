@@ -21,6 +21,6 @@ endif
 let colors_name = "default"
 
 hi Normal guibg=grey90
-hi Comment guifg=yellow ctermfg=Yellow
+hi Comment guifg=LightBlue ctermfg=LightBlue
 
 " vim: sw=2
