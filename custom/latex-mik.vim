@@ -158,7 +158,12 @@ endif
     call GetProjName()
    return
   endif
-  let befehl="!evince ".s:projektname.".pdf &" 
+ 
+  if has("win32unix")
+     let befehl="!/cygdrive/c/Users/dvandenbussche/AppData/local/Google/Chrome/Application/chrome.exe --new-window `cygpath -wa ".s:projektname.".pdf`"
+  else
+     let befehl="!evince ".s:projektname.".pdf &" 
+  endif
   execute(befehl)
 :endfunction
 
