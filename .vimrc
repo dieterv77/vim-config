@@ -2,9 +2,6 @@
 let mapleader=","
 let maplocalleader=","
 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles() 
-
 syntax on
 if exists("did_indent_on")
   finish
@@ -96,14 +93,6 @@ endif
 vnoremap <F11> :w! ~/.vim/vimcp<CR>
 noremap <F12> :.r ~/.vim/vimcp<CR>
 
-"Tab should do tab completion if possible
-function! CleverTab()
-   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-      return "\<Tab>"
-   else
-      return "\<C-N>"
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
 
 "Set folding for header files to 2 levels (because of namespace brackets)
 au BufNewFile,BufRead *.h   setlocal foldnestmax=2
@@ -166,3 +155,9 @@ nmap <Leader>sc   <Plug>Csurround
 nmap <Leader>an :A<CR>
 nmap <Leader>as :AS<CR>
 nmap <Leader>av :AV<CR>
+
+" Supertab settings
+let g:SuperTabDefaultCompletionType = "context"
+
+" vim-ipython settings
+let g:ipy_completefunc = 'local'
