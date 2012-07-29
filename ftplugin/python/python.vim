@@ -5,7 +5,7 @@ setlocal foldnestmax=3
 setlocal foldmethod=indent
 map ,rt  :0read $HOME/.vim/templates/python-template.py<cr>
 if isdirectory("C:\\Python27\\Scripts")
-   map ,pf  :!python.exe C:\\Python27\\Scripts\\pyflakes %<CR>
+   map ,pf  :!C:\Python27\python.exe C:\\Python27\\Scripts\\pyflakes %<CR>
 else
    map ,pf  :!pyflakes %<CR>
 endif
