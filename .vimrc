@@ -70,6 +70,10 @@ if !(has("gui_running"))
 	map <F4> :emenu <C-Z>
 endif
 
+if has("win32")
+   set shell=C:\\Windows\\system32\\cmd.exe
+endif
+
 "Mapping to move between tabs
 nnoremap <C-j> :tabp<CR>
 nnoremap <C-k> :tabn<CR>
