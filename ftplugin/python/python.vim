@@ -12,5 +12,7 @@ endif
 map <f9> :w<CR>:!python %<CR>
 
 setlocal keywordprg=pydoc
-setlocal omnifunc=pythoncomplete#Complete
 
+if !has('python')
+   let g:SuperTabDefaultCompletionType = "<c-p>"
+endif
