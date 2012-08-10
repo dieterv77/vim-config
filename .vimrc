@@ -161,7 +161,7 @@ nmap <Leader>as :AS<CR>
 nmap <Leader>av :AV<CR>
 
 " Supertab settings
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabDefaultCompletionType = "context"
 
 " vim-ipython settings
 let g:ipy_completefunc = 'local'
