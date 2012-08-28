@@ -162,7 +162,11 @@ endif
   if has("win32unix")
      let befehl="!/cygdrive/c/Users/dvandenbussche/AppData/local/Google/Chrome/Application/chrome.exe --new-window `cygpath -wa ".s:projektname.".pdf`"
   else
-     let befehl="!evince ".s:projektname.".pdf &" 
+     if has("gui_running") && has("win32")
+        let befehl="silent !C:\\Users\\dvandenbussche\\AppData\\local\\Google\\Chrome\\Application\\chrome.exe --new-window ".getcwd()."\\".s:projektname.".pdf"
+     else
+        let befehl="!evince ".s:projektname.".pdf &" 
+     endif
   endif
   execute(befehl)
 :endfunction
