@@ -3,7 +3,13 @@ setlocal shiftwidth=4
 setlocal foldcolumn=1
 setlocal foldnestmax=3
 setlocal foldmethod=indent
-map ,rt  :0read $HOME/.vim/templates/python-template.py<cr>
+
+function ReadPyTemplate()
+   execute('0read $HOME/'.g:myvimpath.'/templates/python-template.py')
+endfunction
+
+map ,rt :call ReadPyTemplate()<CR>
+
 if isdirectory("C:\\Python27\\Scripts")
    map ,pf  :!python C:\\Python27\\Scripts\\pyflakes %<CR>
 else
