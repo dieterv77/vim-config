@@ -4,7 +4,7 @@ setlocal foldcolumn=1
 setlocal foldnestmax=3
 setlocal foldmethod=indent
 
-function ReadPyTemplate()
+function! ReadPyTemplate()
    execute('0read $HOME/'.g:myvimpath.'/templates/python-template.py')
 endfunction
 
