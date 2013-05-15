@@ -629,8 +629,8 @@ if g:ipy_perform_mappings != 0
     map <silent> <F5> :python run_this_file()<CR>
     map <silent> <S-F5> :python run_this_line()<CR>
     map <silent> <F9> :python run_these_lines()<CR>
-    map <silent> <leader>d :py get_doc_buffer()<CR>
-    map <silent> <leader>s :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')<CR>
+    map <silent> <leader>id :py get_doc_buffer()<CR>
+    map <silent> <leader>is :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')<CR>
     map <silent> <S-F9> :python toggle_reselect()<CR>
     "map <silent> <C-F6> :python send('%pdb')<CR>
     "map <silent> <F6> :python set_breakpoint()<CR>
@@ -650,9 +650,9 @@ if g:ipy_perform_mappings != 0
     map <silent> <C-Return> :python run_this_file()<CR>
     map <silent> <C-s> :python run_this_line()<CR>
     imap <silent> <C-s> <C-O>:python run_this_line()<CR>
-    map <silent> <M-s> :python dedent_run_this_line()<CR>
+    map <silent> <leader>ir :python dedent_run_this_line()<CR>
     vmap <silent> <C-S> :python run_these_lines()<CR>
-    vmap <silent> <M-s> :python dedent_run_these_lines()<CR>
+    vmap <silent> <leader>ir :python dedent_run_these_lines()<CR>
     map <silent> <M-c> I#<ESC>
     vmap <silent> <M-c> I#<ESC>
     map <silent> <M-C> :s/^\([ \t]*\)#/\1/<CR>
