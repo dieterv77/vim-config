@@ -10,11 +10,7 @@ endfunction
 
 map ,rt :call ReadPyTemplate()<CR>
 
-if isdirectory("C:\\Python27\\Scripts")
-   map ,pf  :!python C:\\Python27\\Scripts\\pyflakes %<CR>
-else
-   map ,pf  :!pyflakes %<CR>
-endif
+map ,pf  :!pyflakes %<CR>
 map <f9> :w<CR>:!python %<CR>
 
 setlocal keywordprg=pydoc
