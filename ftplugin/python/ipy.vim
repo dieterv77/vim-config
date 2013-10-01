@@ -77,12 +77,25 @@ except NameError:
     kc = None
     pid = None
 
+_install_instructions = """You *must* install IPython into the Python that
+your vim is linked against. If you are seeing this message, this usually means
+either (1) installing IPython using the system Python that vim is using, or
+(2) recompiling Vim against the Python where you already have IPython
+installed. This is only a requirement to allow Vim to speak with an IPython
+instance using IPython's own machinery. It does *not* mean that the IPython
+instance with which you communicate via vim-ipython needs to be running the
+same version of Python.
+"""
 def km_from_string(s=''):
     """create kernel manager from IPKernelApp string
     such as '--shell=47378 --iopub=39859 --stdin=36778 --hb=52668' for IPython 0.11
     or just 'kernel-12345.json' for IPython 0.12
     """
     from os.path import join as pjoin
+    try:
+        import IPython
+    except ImportError:
+        raise ImportError("Could not find IPython. " + _install_instructions)
     from IPython.config.loader import KeyValueConfigLoader
     from Queue import Empty
     try:
@@ -431,8 +444,8 @@ def with_subchannel(f,*args):
 
 @with_subchannel
 def run_this_file():
-    msg_id = send('run %s %s' % (run_flags, repr(vim.current.buffer.name),))
-    print_prompt("In[]: run %s %s" % (run_flags, repr(vim.current.buffer.name)),msg_id)
+    msg_id = send('%%run %s %s' % (run_flags, repr(vim.current.buffer.name),))
+    print_prompt("In[]: %%run %s %s" % (run_flags, repr(vim.current.buffer.name)),msg_id)
 
 @with_subchannel
 def run_this_line():
@@ -496,8 +509,10 @@ def set_pid():
     except Empty:
         echo("no reply from IPython kernel")
         return
-
-    pid = int(child['content']['user_variables']['_pid'])
+    try:
+        pid = int(child['content']['user_variables']['_pid'])
+    except TypeError: # change in IPython 1.0.dev moved this out
+        pid = child['content']['user_variables']['_pid']['data']['text/plain']
     return pid
 
 
@@ -629,8 +644,8 @@ if g:ipy_perform_mappings != 0
     map <silent> <F5> :python run_this_file()<CR>
     map <silent> <S-F5> :python run_this_line()<CR>
     map <silent> <F9> :python run_these_lines()<CR>
-    map <silent> <leader>id :py get_doc_buffer()<CR>
-    map <silent> <leader>is :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')<CR>
+    map <silent> <leader>d :py get_doc_buffer()<CR>
+    map <silent> <leader>s :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')<CR>
     map <silent> <S-F9> :python toggle_reselect()<CR>
     "map <silent> <C-F6> :python send('%pdb')<CR>
     "map <silent> <F6> :python set_breakpoint()<CR>
@@ -650,9 +665,9 @@ if g:ipy_perform_mappings != 0
     map <silent> <C-Return> :python run_this_file()<CR>
     map <silent> <C-s> :python run_this_line()<CR>
     imap <silent> <C-s> <C-O>:python run_this_line()<CR>
-    map <silent> <leader>ir :python dedent_run_this_line()<CR>
+    map <silent> <M-s> :python dedent_run_this_line()<CR>
     vmap <silent> <C-S> :python run_these_lines()<CR>
-    vmap <silent> <leader>ir :python dedent_run_these_lines()<CR>
+    vmap <silent> <M-s> :python dedent_run_these_lines()<CR>
     map <silent> <M-c> I#<ESC>
     vmap <silent> <M-c> I#<ESC>
     map <silent> <M-C> :s/^\([ \t]*\)#/\1/<CR>
