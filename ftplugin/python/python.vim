@@ -13,6 +13,8 @@ map ,rt :call ReadPyTemplate()<CR>
 map ,pf  :!pyflakes %<CR>
 map <f9> :w<CR>:!python %<CR>
 
+map ,ie $afrom IPython import embed; embed()<ESC>
+
 setlocal keywordprg=pydoc
 
 if !has('python')
