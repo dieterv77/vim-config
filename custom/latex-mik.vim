@@ -160,10 +160,10 @@ endif
   endif
  
   if has("win32unix")
-     let befehl="silent !\"/cygdrive/c/Program Files (x86)/SumatraPDF/SumatraPDF.exe\" `cygpath -wa ".s:projektname.".pdf` &"
+     let befehl="silent !\"/cygdrive/c/Program Files (x86)/SumatraPDF/SumatraPDF.exe\" \"`cygpath -wa ".s:projektname.".pdf`\" &"
   else
      if has("gui_running") && has("win32")
-        let befehl="!start \"C:\\Program Files (x86)\\SumatraPDF\\SumatraPDF.exe\" ".getcwd()."\\".s:projektname.".pdf"
+        let befehl="!start \"C:\\Program Files (x86)\\SumatraPDF\\SumatraPDF.exe\" \"".getcwd()."\\".s:projektname.".pdf\""
      else
         let befehl="!evince ".s:projektname.".pdf &" 
      endif
