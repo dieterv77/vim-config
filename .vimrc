@@ -94,8 +94,13 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 "Set up some commands to do copying between vimsessions
-vnoremap <F11> :w! ~/.vim/vimcp<CR>
-noremap <F12> :.r ~/.vim/vimcp<CR>
+if has("win32")
+   vnoremap <F11> :w! C:\cygwin\home\dvandenbussche\vimfiles\vimcp<CR>
+   noremap <F12> :.r C:\cygwin\home\dvandenbussche\vimfiles\vimcp<CR>
+else
+   vnoremap <F11> :w! ~/.vim/vimcp<CR>
+   noremap <F12> :.r ~/.vim/vimcp<CR>
+endif
 
 
 "Set folding for header files to 2 levels (because of namespace brackets)
