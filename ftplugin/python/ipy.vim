@@ -112,9 +112,9 @@ xnoremap <Plug>(IPython-RunLinesAsTopLevel) :python dedent_run_these_lines()<CR>
 if g:ipy_perform_mappings != 0
     map  <buffer> <silent> <F5>           <Plug>(IPython-RunFile)
     map  <buffer> <silent> <S-F5>         <Plug>(IPython-RunLine)
-    " map  <buffer> <silent> <F9>           <Plug>(IPython-RunLines)
-    map  <buffer> <silent> <LocalLeader>id <Plug>(IPython-OpenPyDoc)
-    map  <buffer> <silent> <LocalLeader>is <Plug>(IPython-UpdateShell)
+    map  <buffer> <silent> <F9>           <Plug>(IPython-RunLines)
+    map  <buffer> <silent> <LocalLeader>d <Plug>(IPython-OpenPyDoc)
+    map  <buffer> <silent> <LocalLeader>s <Plug>(IPython-UpdateShell)
     map  <buffer> <silent> <S-F9>         <Plug>(IPython-ToggleReselect)
     "map  <buffer> <silent> <C-F6>         <Plug>(IPython-StartDebugging)
     "map  <buffer> <silent> <F6>           <Plug>(IPython-BreakpointSet)
@@ -134,9 +134,9 @@ if g:ipy_perform_mappings != 0
     map  <buffer> <silent> <C-Return>     <Plug>(IPython-RunFile)
     map  <buffer> <silent> <C-s>          <Plug>(IPython-RunLine)
     imap <buffer> <silent> <C-s>          <C-o><Plug>(IPython-RunLine)
-    map  <buffer> <silent> <LocalLeader>ir          <Plug>(IPython-RunLineAsTopLevel)
+    map  <buffer> <silent> <M-s>          <Plug>(IPython-RunLineAsTopLevel)
     xmap <buffer> <silent> <C-S>          <Plug>(IPython-RunLines)
-    xmap <buffer> <silent> <LocalLeader>ir          <Plug>(IPython-RunLinesAsTopLevel)
+    xmap <buffer> <silent> <M-s>          <Plug>(IPython-RunLinesAsTopLevel)
 
     noremap  <buffer> <silent> <M-c>      I#<ESC>
     xnoremap <buffer> <silent> <M-c>      I#<ESC>
