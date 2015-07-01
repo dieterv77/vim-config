@@ -2,6 +2,8 @@
 let mapleader=","
 let maplocalleader=","
 
+execute pathogen#infect()
+
 syntax on
 if exists("did_indent_on")
   finish
