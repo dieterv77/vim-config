@@ -320,7 +320,7 @@ def get_doc_buffer(level=0):
 def ipy_complete(base, current_line, pos):
     # pos is the location of the start of base, add the length
     # to get the completion position
-    msg_id = kc.shell_channel.complete(base, current_line,
+    msg_id = kc.complete(current_line,
                                        int(pos) + len(base) - 1)
     try:
         m = get_child_msg(msg_id)
