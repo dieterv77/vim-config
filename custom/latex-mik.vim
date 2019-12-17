@@ -160,10 +160,10 @@ endif
   endif
  
   if has("win32unix")
-     let befehl="silent !\"/cygdrive/c/Program Files (x86)/SumatraPDF/SumatraPDF.exe\" \"`cygpath -wa ".s:projektname.".pdf`\" &"
+     let befehl="silent !\"/cygdrive/c/Program Files/SumatraPDF/SumatraPDF.exe\" \"`cygpath -wa ".s:projektname.".pdf`\" &"
   else
      if has("gui_running") && has("win32")
-        let befehl="!start \"C:\\Program Files (x86)\\SumatraPDF\\SumatraPDF.exe\" \"".getcwd()."\\".s:projektname.".pdf\""
+        let befehl="!start \"C:\\Program Files\\SumatraPDF\\SumatraPDF.exe\" \"".getcwd()."\\".s:projektname.".pdf\""
      else
         let befehl="!evince ".s:projektname.".pdf &" 
      endif
@@ -206,6 +206,19 @@ if has("gui_running") && has("win32")
   let befehl="silent !pdflatex ".s:projektname
 else
   let befehl="!pdflatex ".s:projektname
+endif
+  execute(befehl)
+:endfunction
+
+:function! ExeLuaLaTeX()
+  if exists("s:projektname") == 0
+    call GetProjName()
+   return
+  endif
+if has("gui_running") && has("win32")
+  let befehl="silent !lualatex ".s:projektname
+else
+  let befehl="!lualatex ".s:projektname
 endif
   execute(befehl)
 :endfunction
@@ -442,6 +455,7 @@ menu 8000.84     &LaTeX.&IndexProject                :call ExeMakeindex()<cr><Sp
 menu 8000.70     &LaTeX.&ViewFile<tab>,yap            :call ExeYap()<cr>
 menu 8000.62     &LaTeX.&PDFLaTeX<tab>,pdf                    :call ExePDFLaTeX()<cr>
 menu 8000.63     &LaTeX.&dvips<tab>,ps                       :call Exedvips()<cr><Space>
+menu 8000.64     &LaTeX.&XeLaTeX<tab>,lua                    :call ExeLuaLaTeX()<cr>
 menu 8000.71     &LaTeX.&gsview\ ps<tab>,gvps                      :call Exegvps()<cr><Space>
 menu 8000.72     &LaTeX.&gsview\ pdf<tab>,gvpdf			:call Exegvpdf<cr><Space>
 menu 8000.85     &LaTeX.LaTeX\ to\ &HTML             :call Exetohtml()<cr><Space>
@@ -478,6 +492,7 @@ menu 8000.95     &LaTeX.LoadBibLog<tab>,blg  			:call LoadBibLog()<cr>
   map ,lps   :call Exelps()<cr>
   map ,bib    :call ExeBibtex()<cr>
   map ,pdf    :call ExePDFLaTeX()<cr>
+  map ,lua    :call ExeLuaLaTeX()<cr>
   map ,xpdf   :call Exexpdf()<cr> 
   map ,ev   :call Exeevince()<cr> 
   map ,ps     :call Exedvips()<cr>
